@@ -42,9 +42,10 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100">
   <main class="form-signin text-center">
     <form>
+      {% load static %}
       {% csrf_token %}
-      {{ form.as_p }}
-      <img class="mb-4" src="../../../../Downloads/HackathonAccenture/images/WhatsApp%20Image%202025-05-16%20at%2011.37.47.jpeg" alt="Logo" width="180" style="height: auto;">
+
+      <img class="mb-4" src="{% static 'images/WhatsApp Image 2025-05-16 at 11.37.47.jpeg' %}" alt="Logo" width="180" style="height: auto;">
       <h1 class="h3 mb-4 fw-bold">Entrar</h1>
 
       <div class="form-floating mb-3">
@@ -65,7 +66,7 @@
       <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
       <div class="mt-4">
         <p class="mb-0 text-body-secondary">
-            Ainda não tem conta? <a href="signup.html" class="link-dark fw-semibold">Crie aqui</a>
+            Ainda não tem conta? <a href="{% url 'signup' %}" class="link-dark fw-semibold">Crie aqui</a>
         </p>
         </div>
       <p class="mt-5 mb-0 text-body-secondary">© MemórIAs</p>
