@@ -4,11 +4,17 @@ from django.urls import reverse
 from django.contrib.auth import authenticate, login
 from .forms import SignUpForm, LoginForm
 from django.contrib import messages
+import random
 
 from .models import *
 
 def chatBot_view(request):
-    return render(request, 'chatBot.html')
+    imagens = [
+        'images/people/imagem1.jpeg',
+        'images/people/imagem2.jpeg'
+    ]
+    imagem_escolhida = random.choice(imagens)
+    return render(request, 'chatBot.html', {'imagem_aleatoria': imagem_escolhida})
 
 # Create your views here.
 def signup_view(request):
