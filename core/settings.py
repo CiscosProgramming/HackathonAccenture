@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-lff(hh682!8fiukgslqbw_q8xs00&ifpl+=nsccj2nx&wk!h_a
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'memorias.CustomUser'
 
 # Application definition
 
