@@ -41,7 +41,8 @@
 </head>
 <body class="d-flex align-items-center justify-content-center min-vh-100">
   <main class="form-signin text-center">
-    <form>
+    <form method="post" action="{% url 'memorias:login' %}">
+
       {% load static %}
       {% csrf_token %}
 
@@ -66,7 +67,7 @@
       <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
       <div class="mt-4">
         <p class="mb-0 text-body-secondary">
-            Ainda não tem conta? <a href="{% url 'signup' %}" class="link-dark fw-semibold">Crie aqui</a>
+            Ainda não tem conta? <a href="{% url 'memorias:signup' %}" class="link-dark fw-semibold">Crie aqui</a>
         </p>
         </div>
       <p class="mt-5 mb-0 text-body-secondary">© MemórIAs</p>
