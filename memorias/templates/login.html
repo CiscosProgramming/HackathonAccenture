@@ -42,36 +42,36 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100">
   <main class="form-signin text-center">
     <form method="post" action="{% url 'memorias:login' %}">
+  {% csrf_token %}
+  {% load static %}
 
-      {% load static %}
-      {% csrf_token %}
+  <img class="mb-4" src="{% static 'images/WhatsApp Image 2025-05-16 at 11.37.47.jpeg' %}" alt="Logo" width="180" style="height: auto;">
+  <h1 class="h3 mb-4 fw-bold">Entrar</h1>
 
-      <img class="mb-4" src="{% static 'images/WhatsApp Image 2025-05-16 at 11.37.47.jpeg' %}" alt="Logo" width="180" style="height: auto;">
-      <h1 class="h3 mb-4 fw-bold">Entrar</h1>
+  <div class="form-floating mb-3">
+    <input type="tel" name="phone_number" class="form-control" id="phoneNumber" placeholder="912345678" pattern="[0-9]{9}" maxlength="9" required>
+    <label for="phoneNumber">Número de Telemóvel</label>
+  </div>
 
-      <div class="form-floating mb-3">
-        <input type="tel" class="form-control" id="phoneNumber" placeholder="912345678" pattern="[0-9]{9}" maxlength="9" required>
-        <label for="phoneNumber">Número de Telemóvel</label>
-      </div>
+  <div class="form-floating mb-4">
+    <input type="password" name="pin" class="form-control" id="pinInput" placeholder="1234" inputmode="numeric" pattern="\d{4}" maxlength="4" required>
+    <label for="pinInput">PIN (4 dígitos)</label>
+  </div>
 
-      <div class="form-floating mb-4">
-        <input type="password" class="form-control" id="pinInput" placeholder="1234" inputmode="numeric" pattern="\d{4}" maxlength="4" required>
-        <label for="pinInput">PIN (4 dígitos)</label>
-      </div>
+  <div class="form-check text-start mb-3">
+    <input class="form-check-input" type="checkbox" name="remember_me" value="remember-me" id="checkDefault">
+    <label class="form-check-label" for="checkDefault">Relembrar</label>
+  </div>
 
-      <div class="form-check text-start mb-3">
-        <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
-        <label class="form-check-label" for="checkDefault">Relembrar</label>
-      </div>
+  <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
 
-      <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
-      <div class="mt-4">
-        <p class="mb-0 text-body-secondary">
-            Ainda não tem conta? <a href="{% url 'memorias:signup' %}" class="link-dark fw-semibold">Crie aqui</a>
-        </p>
-        </div>
-      <p class="mt-5 mb-0 text-body-secondary">© MemórIAs</p>
-    </form>
+  <div class="mt-4">
+    <p class="mb-0 text-body-secondary">
+        Ainda não tem conta? <a href="{% url 'memorias:signup' %}" class="link-dark fw-semibold">Crie aqui</a>
+    </p>
+  </div>
+  <p class="mt-5 mb-0 text-body-secondary">© MemórIAs</p>
+</form>
   </main>
 </body>
 </html>
