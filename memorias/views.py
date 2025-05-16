@@ -10,8 +10,8 @@ from .models import *
 
 def chatBot_view(request):
     imagens = [
-        'images/people/imagem1.jpeg',
-        'images/people/imagem2.jpeg'
+        'images/people/WhatsApp Image 2025-05-16 at 11.16.01.jpeg',
+        'images/people/WhatsApp Image 2025-05-16 at 11.17.12.jpeg'
     ]
     imagem_escolhida = random.choice(imagens)
     return render(request, 'chatBot.html', {'imagem_aleatoria': imagem_escolhida})
