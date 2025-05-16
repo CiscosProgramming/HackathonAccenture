@@ -84,6 +84,35 @@
       flex: 1;
       background-color: rgb(202, 167, 126); /* igual à esquerda */
     }
+    .week-table {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 8px 16px;
+}
+
+.week-row {
+  display: contents; /* permite que os filhos ocupem a grid */
+}
+
+.day-label {
+  font-weight: 600;
+  color: rgb(171, 90, 64);
+  padding: 6px 8px;
+  border-radius: 6px;
+  background-color: rgb(245, 234, 212);
+  align-self: center;
+}
+
+.day-event {
+  padding: 6px 8px;
+  border-radius: 6px;
+  background-color: #fff;
+  min-height: 32px;
+  box-shadow: inset 0 0 5px rgb(0 0 0 / 0.05);
+  font-size: 0.95rem;
+  color: #333;
+  white-space: normal;
+}
   </style>
 </head>
 <body>
@@ -106,9 +135,49 @@
     </div>
 
     <!-- Zona direita (1/4) -->
-    <div class="right-section">
-      <!-- Aqui vais pôr a sidebar -->
+    <div class="right-section d-flex flex-column gap-4">
+  <!-- Streaks -->
+  <div class="streaks p-3 bg-white rounded shadow-sm text-center">
+    <h5>Streak</h5>
+    <p>Dias seguidos a comunicar:</p>
+    <div class="streak-count display-4 fw-bold" style="color: rgb(171, 90, 64);">7🔥</div>
+  </div>
+
+  <!-- Calendário da Semana -->
+  <div class="weekly-calendar p-3 bg-white rounded shadow-sm">
+    <h5>Calendário da Semana</h5>
+    <div class="week-table mt-3">
+      <div class="week-row">
+        <div class="day-label">Segunda - 12/5</div>
+        <div class="day-event">Medicação</div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Terça - 13/5</div>
+        <div class="day-event"></div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Quarta - 14/5</div>
+        <div class="day-event">Consulta médica</div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Quinta - 15/5</div>
+        <div class="day-event"></div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Sexta - 16/5</div>
+        <div class="day-event"></div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Sábado - 17/5</div>
+        <div class="day-event"></div>
+      </div>
+      <div class="week-row">
+        <div class="day-label">Domingo - 18/5</div>
+        <div class="day-event"></div>
+      </div>
     </div>
+  </div>
+</div>
   </div>
 </body>
 </html>

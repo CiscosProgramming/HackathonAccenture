@@ -1,13 +1,11 @@
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
 from .forms import SignUpForm, LoginForm
 from django.contrib import messages
 
 from .models import *
-
 
 def chatBot_view(request):
     return render(request, 'chatBot.html')
@@ -37,7 +35,7 @@ def signup_view(request):
             age=idade_int
         )
 
-        login(request, user)
+        login(request, user, backend='memorias.auth_backend.PhoneNumberBackend')
         return redirect(reverse('memorias:chatBot'))
 
     return render(request, 'signup.html')
@@ -47,10 +45,14 @@ def login_view(request):
         phone_number = request.POST.get('phone_number')
         pin = request.POST.get('pin')
 
+        print(f"Tentando autenticar: phone_number={phone_number}, pin={pin}")
+        user = authenticate(request, phone_number=phone_number, pin=pin)
+        print(f"Usuário autenticado: {user}")
+
         user = authenticate(request, phone_number=phone_number, pin=pin)
         if user is not None:
             login(request, user)
-            return redirect('memorias:chatbot')  # ou o caminho que preferires
+            return redirect('memorias:chatBot')  
         else:
             messages.error(request, 'Número de telemóvel ou PIN inválido.')
             return render(request, 'login.html')
